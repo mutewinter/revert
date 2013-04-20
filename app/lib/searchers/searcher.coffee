@@ -20,9 +20,11 @@ module.exports = class Searcher
   render: (data) ->
     discussionPages = @parse(data)
 
-    $ul = $('<ul>')
+    $ul = $('<ul class="unstyled">')
     _.each discussionPages, (discussionPage) =>
-      $ul.append _.template(@templateString, discussionPage)
+      $li = $('<li>')
+      $li.append _.template(@templateString, discussionPage)
+      $ul.append $li
 
     $('#results').append($("<h2>#{@name}</h2>"))
     $('#results').append($ul)

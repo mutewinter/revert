@@ -16,18 +16,19 @@
       window.brunch['auto-reload'] = { enabled: true };
     </script>
 
-    <div class="row">
-      <div class="large-12 columns">
+    <div class="container">
+      <div class="span12">
         <h1>revert</h1>
         <form action="get">
-          <input type="text" placeholder="url" />
-          <button>revert</button>
+
+          <div class="input-append">
+            <input class="span6" type="text">
+            <button class="btn" type="button">revert</button>
+          </div>
         </form>
       </div>
 
-      <div class="large-12 columns">
-        <div id="results">
-        </div>
+      <div id="results" class="span12">
       </div>
     </div>
 

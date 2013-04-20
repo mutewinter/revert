@@ -9,14 +9,19 @@ module.exports = class HackerNewsSearcher extends Searcher
     <em>{{domain}}</em>
   </div>
   <div>
-    <a href="{{commentsURL}}" class="button tiny" target="_blank">{{points}} comments</a>
-    <a href="{{pageURL}}" class="button tiny" target="_blank">site</a>
+    <a href="{{commentsURL}}" class="btn btn-mini" target="_blank">{{points}} comments</a>
+    <a href="{{pageURL}}" class="btn btn-mini" target="_blank">site</a>
   </div>
   """
   baseURL: 'http://api.thriftdb.com/api.hnsearch.com/items/'
 
   buildURL: ->
     "#{@baseURL}_search?filter[fields][url][]="+@encode(@url)
+
+  itemMap:
+    title: 'item.title'
+
+  rootMap: 'results'
 
   parse: (discussions) ->
     console.log('got discussions', discussions)

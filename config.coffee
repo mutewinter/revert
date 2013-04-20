@@ -16,7 +16,7 @@ exports.config =
       joinTo:
         'stylesheets/app.css': /^(app|vendor)/
       order:
-        before: ['vendor/styles/normalize.css']
+        before: ['bootstrap.css']
         after: []
 
     templates:
