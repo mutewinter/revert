@@ -13,5 +13,6 @@ module.exports = class HackerNewsSearcher extends Searcher
   itemMap:
     title: 'item.title'
     points: 'item.points'
+    comments: 'item.num_comments'
 
   rootMap: 'results'

@@ -2,8 +2,9 @@ DiscussionPage = require 'discussion_page'
 
 module.exports = class Searcher
   templateString: """
+  <strong>{{points}}<i class="icon-arrow-up"></i> |</strong>
   <a href="{{commentsURL}}" target="_blank">
-    <strong>{{points}} {{itemType}}</strong> | {{title}}
+    <strong> {{comments}} {{itemType}}</strong> | {{title}}
   </a>
   """
 
@@ -43,6 +44,7 @@ module.exports = class Searcher
       discussionPage = new DiscussionPage
       discussionPage.title = _.deep result, @itemMap.title
       discussionPage.points = _.deep result, @itemMap.points
+      discussionPage.comments = _.deep result, @itemMap.comments
       discussionPage.commentsURL = @itemURL(result)
       discussionPage.itemType =
         if discussionPage.points is 1 then @singularName else @pluralName
