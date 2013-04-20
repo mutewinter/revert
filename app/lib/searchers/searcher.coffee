@@ -1,4 +1,10 @@
 module.exports = class Searcher
+  templateString: """
+  <a href="{{commentsURL}}" target="_blank">
+    <strong>{{points}} {{itemType}}</strong> | {{title}}
+  </a>
+  """
+
   fetchDiscussions: (url) ->
     console.log('Fetching discussoins for', url)
 
