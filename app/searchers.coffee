@@ -1,5 +1,10 @@
-HackerNewsSearcher = require 'lib/searchers/hacker_news'
+searchers = [
+  require 'lib/searchers/hacker_news'
+  require 'lib/searchers/reddit'
+  #require 'lib/searchers/twitter'
+]
 
 module.exports =
   search: (url) ->
-    (new HackerNewsSearcher).fetchDiscussions(url)
+    _.each searchers, (searcher) ->
+      (new searcher).fetchDiscussions(url)

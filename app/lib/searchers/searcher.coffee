@@ -12,7 +12,7 @@ module.exports = class Searcher
     $.ajax(
       url: @buildURL()
       data: @queryData() if @queryData
-      dataType: "jsonp"
+      dataType: 'jsonp'
       success: $.proxy(@render, this)
       error: $.proxy(@error, this)
     )
@@ -34,7 +34,7 @@ module.exports = class Searcher
 
     $('#results').append($("<h2>#{@name}</h2>"))
     $('#results').append($("""
-      <h3>Searched for <a href="#{@url}" target="_blank">#{@url}</a></h3>
+      <div>Searched for <a href="#{@url}" target="_blank">#{@url}</a></div>
     """))
     $('#results').append($ul)
 
