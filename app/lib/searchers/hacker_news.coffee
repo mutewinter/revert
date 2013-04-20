@@ -4,14 +4,9 @@ DiscussionPage = require 'discussion_page'
 module.exports = class HackerNewsSearcher extends Searcher
   name: 'Hacker News'
   templateString: """
-  <div>
-    <strong>{{title}}</strong>
-    <em>{{domain}}</em>
-  </div>
-  <div>
-    <a href="{{commentsURL}}" class="btn btn-mini" target="_blank">{{points}} comments</a>
-    <a href="{{pageURL}}" class="btn btn-mini" target="_blank">site</a>
-  </div>
+  <a href="{{commentsURL}}" class="btn btn-link" target="_blank">
+    <strong>{{points}} comments</strong> | {{title}}
+  </a>
   """
   baseURL: 'http://api.thriftdb.com/api.hnsearch.com/items/'
 

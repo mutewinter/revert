@@ -27,6 +27,9 @@ module.exports = class Searcher
       $ul.append $li
 
     $('#results').append($("<h2>#{@name}</h2>"))
+    $('#results').append($("""
+      <h3>Searched for <a href="#{@url}" target="_blank">#{@url}</a></h3>
+    """))
     $('#results').append($ul)
 
   # -------------------------------------------
