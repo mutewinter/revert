@@ -1,0 +1,14 @@
+.masthead {
+  font-size: 4em;
+  margin-bottom: 30px;
+}
+
+.bookmarklet {
+  cursor: move;
+}
+
+.or {
+  padding: 0 10px;
+  position: relative;
+  bottom: 0.2em;
+}

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>revert</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="stylesheets/app.css">
   </head>
@@ -16,19 +16,30 @@
       window.brunch['auto-reload'] = { enabled: true };
     </script>
 
-    <div class="container">
-      <div class="span12">
-        <h1>revert</h1>
-        <form action="get">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span12">
+          <h1 class="masthead">revert</h1>
 
-          <div class="input-append">
-            <input class="span6" type="text">
-            <button class="btn" type="submit">revert</button>
-          </div>
-        </form>
+          <form action="get">
+            <a class="btn btn-link bookmarklet pull-left"
+              href="javascript:window.open('http://mutewinter.github.io/revert?url='+encodeURIComponent(window.location.href))">
+              <i class="icon-move"></i> Bookmarklet
+            </a>
+            <strong class="or">or</strong>
+            <div class="input-append">
+              <input class="span12" type="text">
+              <button class="btn" type="submit">revert</button>
+            </div>
+          </form>
+        </div>
       </div>
 
-      <div id="results" class="span12">
+      <div class="row-fluid">
+        <div class="row-fluid">
+          <div id="results" class="span12">
+          </div>
+        </div>
       </div>
     </div>
 
