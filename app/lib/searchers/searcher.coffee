@@ -8,15 +8,23 @@ module.exports = class Searcher
   </a>
   """
 
+  search: (url) ->
+    @fetchDiscussions(url)
+    @runAlternateSearches(url)
+
   fetchDiscussions: (url) ->
-    @url = url
     $.ajax(
-      url: @buildURL()
-      data: @queryData() if @queryData
+      url: @buildURL(url)
+      data: @queryData(url) if @queryData
       dataType: 'jsonp'
       success: $.proxy(@render, this)
       error: $.proxy(@error, this)
     )
+
+  runAlternateSearches: (url) ->
+    uri = URI(url)
+    if uri.domain() is 'github.io'
+      @fetchDiscussions(uri.domain('github.com').toString())
 
   encode: (url) ->
     encodeURIComponent(decodeURIComponent(url))
@@ -49,12 +57,3 @@ module.exports = class Searcher
       discussionPage
 
     _.sortBy(results, (discussionPage) -> -discussionPage.points)
-
-  # -------------------------------------------
-  # Requred methods for subclasses to implement
-  # -------------------------------------------
-
-  _notImplemented: -> console.error('not implemented')
-  fetch: -> @_notImplemented
-  # Internal: Returns an array of Page objects.
-  buildURL: -> @_notImplemented

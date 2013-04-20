@@ -9,7 +9,7 @@ module.exports = class RedditSearcher extends Searcher
 
   buildURL: -> @baseURL
 
-  queryData: -> {url: decodeURIComponent(@url)}
+  queryData: (url) -> {url: decodeURIComponent(url)}
 
   itemMap:
     title: 'data.title'

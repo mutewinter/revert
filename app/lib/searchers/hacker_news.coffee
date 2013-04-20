@@ -7,8 +7,8 @@ module.exports = class HackerNewsSearcher extends Searcher
   pluralName: 'comments'
   itemURL: (item) -> "http://news.ycombinator.com/item?id=#{item.item.id}"
 
-  buildURL: ->
-    "#{@baseURL}_search?filter[fields][url][]="+@encode(@url)
+  buildURL: (url) ->
+    "#{@baseURL}_search?filter[fields][url][]="+@encode(url)
 
   itemMap:
     title: 'item.title'

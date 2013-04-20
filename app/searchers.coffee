@@ -10,4 +10,4 @@ module.exports =
       <div>Searching for <a href="#{url}" target="_blank">#{url}</a></div>
     """))
     _.each searchers, (searcher) ->
-      (new searcher).fetchDiscussions(url)
+      (new searcher).search(url)
