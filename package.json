@@ -1,0 +1,31 @@
+{
+  "author": "Jeremy Mack",
+  "name": "revert",
+  "description": "Track down discussions with Revert.",
+  "version": "1.5.4",
+  "homepage": "http://revert.mutewinter.com",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": "~0.6.10 || 0.8 || 0.9"
+  },
+  "scripts": {
+    "start": "brunch watch --server",
+    "test": "brunch test"
+  },
+  "dependencies": {
+    "javascript-brunch": ">= 1.0 < 1.6",
+    "auto-reload-brunch": "> 1.0 < 1.5",
+
+    "coffee-script-brunch": ">= 1.0 < 1.7",
+    "css-brunch": ">= 1.0 < 1.6",
+
+    "uglify-js-brunch": ">= 1.0 < 1.6",
+    "clean-css-brunch": ">= 1.0 < 1.6",
+    "stylus-brunch": ">= 1.0 < 1.6"
+  },
+  "devDependencies": {
+  }
+}
