@@ -1,7 +1,5 @@
 Searchers = require 'searchers'
 
-console.log Searchers
-
 _.templateSettings = interpolate: /\{\{(.+?)\}\}/g
 
 $ ->

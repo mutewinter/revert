@@ -1,3 +1,5 @@
+DiscussionPage = require 'discussion_page'
+
 module.exports = class Searcher
   templateString: """
   <a href="{{commentsURL}}" target="_blank">
@@ -6,8 +8,6 @@ module.exports = class Searcher
   """
 
   fetchDiscussions: (url) ->
-    console.log('Fetching discussoins for', url)
-
     @url = url
     $.ajax(
       url: @buildURL()
@@ -38,6 +38,19 @@ module.exports = class Searcher
     """))
     $('#results').append($ul)
 
+  parse: (data) ->
+    results = _.map _.deep(data, @rootMap), (result) =>
+      discussionPage = new DiscussionPage
+      discussionPage.title = _.deep result, @itemMap.title
+      discussionPage.points = _.deep result, @itemMap.points
+      discussionPage.commentsURL = @itemURL(result)
+      discussionPage.itemType =
+        if discussionPage.points is 1 then @singularName else @pluralName
+
+      discussionPage
+
+    _.sortBy(results, (discussionPage) -> -discussionPage.points)
+
   # -------------------------------------------
   # Requred methods for subclasses to implement
   # -------------------------------------------
@@ -45,5 +58,4 @@ module.exports = class Searcher
   _notImplemented: -> console.error('not implemented')
   fetch: -> @_notImplemented
   # Internal: Returns an array of Page objects.
-  parse: -> @_notImplemented
   buildURL: -> @_notImplemented

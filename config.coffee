@@ -8,8 +8,10 @@ exports.config =
         'javascripts/bookmarklet.js': /^app\/bookmarklet/
       order:
         before: [
-          'vendor/scripts/console-helper.js'
-          'vendor/scripts/jquery-1.9.0.min.js'
+          'vendor/scripts/console-polyfill.js'
+          'vendor/scripts/jquery-1.9.1.js'
+          'vendor/scripts/underscore.js'
+          'vendor/scripts/deep.js'
         ]
 
     stylesheets:
