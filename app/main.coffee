@@ -9,8 +9,6 @@ $ ->
     url = $('input').val()
     Searchers.search(url)
 
-  # Poor man's tests
-  setTimeout(->
-    $('input').val('http://github.com/')
-    $('form').submit()
-  , 100)
+  queryParams = URI(window.location.href).query(true)
+  if 'url' of queryParams
+    Searchers.search(queryParams.url)
