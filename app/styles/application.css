@@ -1,14 +1,28 @@
 .masthead {
-  font-size: 4em;
   margin-bottom: 30px;
+}
+
+.masthead h1 {
+  font-size: 4em;
 }
 
 .bookmarklet {
   cursor: move;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: 1px dashed #888;
+}
+
+.bookmarklet i {
+  margin-right: 5px;
+}
+
+.bookmarklet-title {
+  color: #444;
 }
 
 .or {
-  padding: 0 10px;
-  position: relative;
+  padding: 30px 90px;
   bottom: 0.2em;
+  font-weight: bold;
 }

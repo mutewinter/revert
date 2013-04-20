@@ -19,21 +19,37 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span12">
-          <h1 class="masthead">revert</h1>
-
-          <form action="get">
-            <a class="btn btn-link bookmarklet pull-left"
-              href="javascript:window.open('http://mutewinter.github.io/revert?url='+encodeURIComponent(window.location.href))">
-              <i class="icon-move"></i> Bookmarklet
-            </a>
-            <strong class="or">or</strong>
-            <div class="input-append">
-              <input class="span12" type="text" placeholder="put a url here">
-              <button class="btn" type="submit">
-                revert
-              </button>
+          <div class="masthead">
+            <h1>revert</h1>
+            <div class="subtitle">
+              find comments
             </div>
-          </form>
+          </div>
+
+          <div class="row-fluid">
+            <span class="bookmarklet-title">use the bookmarklet</span>
+            <a class="btn btn-link bookmarklet" title="revert"
+              href="javascript:window.open('http://mutewinter.github.io/revert?url='+encodeURIComponent(window.location.href))">
+              <i class="icon-move"></i>revert
+            </a>
+          </div>
+
+          <div class="row-fluid">
+            <div class="or">
+              or
+            </div>
+          </div>
+
+          <div class="row-fluid">
+            <form action="get">
+              <div class="input-append">
+                <input class="input-medium" type="text" placeholder="put a url here">
+                <button class="btn" type="submit">
+                  revert
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
 
