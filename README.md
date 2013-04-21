@@ -1,11 +1,6 @@
-Revert
+revert
 ======
 
-Track down discussions with Revert.
+[back to the discourse][go]
 
-Bookmarklet
------------
-
-```
-javascript: alert('notreadyyet');
-```
+[go]: http://mutewinter.github.io/revert
