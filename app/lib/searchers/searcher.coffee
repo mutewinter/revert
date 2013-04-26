@@ -4,7 +4,11 @@ module.exports = class Searcher
   templateString: """
   <strong>{{points}}<i class="icon-arrow-up"></i> |</strong>
   <a href="{{commentsURL}}" target="_blank">
-    <strong> {{comments}} {{itemType}}</strong> | {{title}}
+    <strong> {{comments}} {{itemType}}</strong>
+  </a>
+  | <time title="{{date}}" datetime="{{date}}">{{relativeDate}}</time> |
+  <a href="{{commentsURL}}" target="_blank">
+    {{title}}
   </a>
   """
 
@@ -51,9 +55,13 @@ module.exports = class Searcher
       discussionPage.points = _.deep result, @itemMap.points
       discussionPage.comments = _.deep result, @itemMap.comments
       discussionPage.commentsURL = @itemURL(result)
+      discussionPage.date = @makeDate(_.deep(result, @itemMap.date))
+      discussionPage.relativeDate = @relativeDate discussionPage.date
       discussionPage.itemType =
         if discussionPage.points is 1 then @singularName else @pluralName
 
       discussionPage
 
     _.sortBy(results, (discussionPage) -> -discussionPage.points)
+
+  relativeDate: (date) -> relativeDate(date)
