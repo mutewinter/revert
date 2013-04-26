@@ -2,14 +2,16 @@ DiscussionPage = require 'discussion_page'
 
 module.exports = class Searcher
   templateString: """
+  <div class="row-fluid">
+    <a href="{{commentsURL}}" target="_blank">
+      {{title}}
+    </a>
+  </div>
   <strong>{{points}}<i class="icon-arrow-up"></i> |</strong>
   <a href="{{commentsURL}}" target="_blank">
     <strong> {{comments}} {{itemType}}</strong>
   </a>
-  | <time title="{{date}}" datetime="{{date}}">{{relativeDate}}</time> |
-  <a href="{{commentsURL}}" target="_blank">
-    {{title}}
-  </a>
+  | <time title="{{date}}" datetime="{{date}}">{{relativeDate}}</time>
   """
 
   search: (url) ->
@@ -39,7 +41,7 @@ module.exports = class Searcher
   render: (data) ->
     discussionPages = @parse(data)
 
-    $ul = $('<ul class="unstyled">')
+    $ul = $('<ul class="unstyled discussions">')
     _.each discussionPages, (discussionPage) =>
       $li = $('<li>')
       $li.append _.template(@templateString, discussionPage)
