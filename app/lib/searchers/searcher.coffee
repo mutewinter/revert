@@ -3,12 +3,12 @@ DiscussionPage = require 'discussion_page'
 module.exports = class Searcher
   templateString: """
   <div class="row-fluid">
-    <a href="{{commentsURL}}" target="_blank">
+    <a href="{{commentsURL}}">
       {{title}}
     </a>
   </div>
   <strong>{{points}}<i class="icon-arrow-up"></i> |</strong>
-  <a href="{{commentsURL}}" target="_blank">
+  <a href="{{commentsURL}}">
     <strong> {{comments}} {{itemType}}</strong>
   </a>
   | <time title="{{date}}" datetime="{{date}}">{{relativeDate}}</time>
