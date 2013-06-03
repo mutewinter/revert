@@ -31,6 +31,8 @@ module.exports = class Searcher
     uri = URI(url)
     if uri.domain() is 'github.io'
       @fetchDiscussions(uri.domain('github.com').toString())
+    unless _.isEmpty(uri.query())
+      @fetchDiscussions(uri.query('').toString())
 
   encode: (url) ->
     encodeURIComponent(decodeURIComponent(url))
