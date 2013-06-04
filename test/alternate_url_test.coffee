@@ -21,3 +21,7 @@ describe 'AlternateUrls', ->
   it 'should remove a trailing slash', ->
     urls = AlternateUrls.alternate('http://test.com/1/')
     expect(urls).to.include('http://test.com/1')
+
+  it 'should convert mobile urls to desktop urls', ->
+    urls = AlternateUrls.alternate('http://mobile.slate.com/blogs/the_slatest/2013/06/03/turkey_faq_what_s_happening_in_istanbul_will_recep_tayyip_erdogan_be_ousted.html')
+    expect(urls).to.include('http://slate.com/blogs/the_slatest/2013/06/03/turkey_faq_what_s_happening_in_istanbul_will_recep_tayyip_erdogan_be_ousted.html')

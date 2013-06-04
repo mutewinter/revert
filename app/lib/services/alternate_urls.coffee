@@ -1,3 +1,5 @@
+MOBILE_SUBDOMAINS = ['mobi', 'mobile', 'm']
+
 # Public: A class that contains an alternate Url and a reason.
 class AlternateUrl
   constructor: (@uri, @description) ->
@@ -30,5 +32,10 @@ module.exports =
     else
       urls.push new AlternateUrl(uri.clone().path(uri.path()+'/'),
         'With trailing slash')
+
+    # Remove mobile subdomain
+    if _.contains(MOBILE_SUBDOMAINS, uri.subdomain())
+      urls.push new AlternateUrl(uri.clone().subdomain(''),
+        'No mobile subdomain')
 
     _.pluck(urls, 'url')
