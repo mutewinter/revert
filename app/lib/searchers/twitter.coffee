@@ -2,12 +2,12 @@ Searcher = require 'lib/searchers/searcher'
 
 module.exports = class TwitterSearcher extends Searcher
   name: 'Twitter'
-  baseURL: 'http://search.twitter.com/search.json'
+  baseUrl: 'http://search.twitter.com/search.json'
   singularName: 'tweet'
   pluralName: 'tweets'
-  itemURL: (item) -> debugger
+  itemUrl: (item) -> debugger
 
-  buildURL: -> @baseURL
+  buildUrl: -> @baseUrl
 
   queryData: -> {q: decodeURIComponent(@url), rpp: 50, page: 1}
 

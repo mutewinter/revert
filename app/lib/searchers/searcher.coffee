@@ -3,12 +3,12 @@ DiscussionPage = require 'lib/models/discussion_page'
 module.exports = class Searcher
   templateString: """
   <div class="row-fluid">
-    <a href="{{commentsURL}}">
+    <a href="{{commentsUrl}}">
       {{title}}
     </a>
   </div>
   <strong>{{points}}<i class="icon-arrow-up"></i> |</strong>
-  <a href="{{commentsURL}}">
+  <a href="{{commentsUrl}}">
     <strong> {{comments}} {{itemType}}</strong>
   </a>
   | <time title="{{date}}" datetime="{{date}}">{{relativeDate}}</time>
@@ -20,7 +20,7 @@ module.exports = class Searcher
 
   fetchDiscussions: (url) ->
     $.ajax(
-      url: @buildURL(url)
+      url: @buildUrl(url)
       data: @queryData(url) if @queryData
       dataType: 'jsonp'
       success: $.proxy(@render, this)
@@ -58,7 +58,7 @@ module.exports = class Searcher
       discussionPage.title = _.deep result, @itemMap.title
       discussionPage.points = _.deep result, @itemMap.points
       discussionPage.comments = _.deep result, @itemMap.comments
-      discussionPage.commentsURL = @itemURL(result)
+      discussionPage.commentsUrl = @itemUrl(result)
       discussionPage.date = @makeDate(_.deep(result, @itemMap.date))
       discussionPage.relativeDate = @relativeDate discussionPage.date
       discussionPage.itemType =
