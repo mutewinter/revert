@@ -13,3 +13,11 @@ describe 'AlternateUrls', ->
   it 'should not github domains without a subdomain', ->
     urls = AlternateUrls.alternate('http://github.io/test')
     expect(urls).not.to.include('http://github.com/test')
+
+  it 'should add a missing trailing slash', ->
+    urls = AlternateUrls.alternate('http://test.com/1')
+    expect(urls).to.include('http://test.com/1/')
+
+  it 'should remove a trailing slash', ->
+    urls = AlternateUrls.alternate('http://test.com/1/')
+    expect(urls).to.include('http://test.com/1')
