@@ -25,3 +25,11 @@ describe 'AlternateUrls', ->
   it 'should convert mobile urls to desktop urls', ->
     urls = AlternateUrls.alternate('http://mobile.slate.com/blogs/the_slatest/2013/06/03/turkey_faq_what_s_happening_in_istanbul_will_recep_tayyip_erdogan_be_ousted.html')
     expect(urls).to.include('http://slate.com/blogs/the_slatest/2013/06/03/turkey_faq_what_s_happening_in_istanbul_will_recep_tayyip_erdogan_be_ousted.html')
+
+  it 'should remove mobile url AND remove query string', ->
+    urls = AlternateUrls.alternate('http://mobile.slate.com/blogs/the_slatest/2013/06/03/turkey_faq_what_s_happening_in_istanbul_will_recep_tayyip_erdogan_be_ousted.html?original_referrer=http://cheeaun.github.io/hackerweb/')
+    expect(urls).to.include('http://slate.com/blogs/the_slatest/2013/06/03/turkey_faq_what_s_happening_in_istanbul_will_recep_tayyip_erdogan_be_ousted.html')
+
+  it 'should remove mobile, remove query string, and add www', ->
+    urls = AlternateUrls.alternate('http://mobile.slate.com/blogs/the_slatest/2013/06/03/turkey_faq_what_s_happening_in_istanbul_will_recep_tayyip_erdogan_be_ousted.html?original_referrer=http://cheeaun.github.io/hackerweb/')
+    expect(urls).to.include('http://www.slate.com/blogs/the_slatest/2013/06/03/turkey_faq_what_s_happening_in_istanbul_will_recep_tayyip_erdogan_be_ousted.html')
