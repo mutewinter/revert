@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "brunch watch --server",
-    "test": "brunch test"
+    "test": "cake build:test"
   },
   "dependencies": {
     "javascript-brunch": ">= 1.0 < 1.6",
@@ -27,5 +27,6 @@
     "stylus-brunch": ">= 1.0 < 1.6"
   },
   "devDependencies": {
+    "karma": "0.8.5"
   }
 }
