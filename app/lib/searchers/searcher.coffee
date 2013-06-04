@@ -1,4 +1,5 @@
 DiscussionPage = require 'lib/models/discussion_page'
+AlternateUrls = require 'lib/services/alternate_urls'
 
 module.exports = class Searcher
   templateString: """
@@ -16,7 +17,8 @@ module.exports = class Searcher
 
   search: (url) ->
     @fetchDiscussions(url)
-    @runAlternateSearches(url)
+    _.each AlternateUrls.alternate(url), (url) =>
+      @fetchDiscussions(url)
 
   fetchDiscussions: (url) ->
     $.ajax(
@@ -26,13 +28,6 @@ module.exports = class Searcher
       success: $.proxy(@render, this)
       error: $.proxy(@error, this)
     )
-
-  runAlternateSearches: (url) ->
-    uri = URI(url)
-    if uri.domain() is 'github.io'
-      @fetchDiscussions(uri.domain('github.com').toString())
-    unless _.isEmpty(uri.query())
-      @fetchDiscussions(uri.query('').toString())
 
   encode: (url) ->
     encodeURIComponent(decodeURIComponent(url))
