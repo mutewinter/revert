@@ -16,19 +16,19 @@ module.exports =
 
     # Try old GitHub pages domain
     if uri.domain() is 'github.io' and !_.isEmpty(uri.subdomain())
-      urls.push new AlternateUrl(uri.domain('github.com'),
+      urls.push new AlternateUrl(uri.clone().domain('github.com'),
         'Old GitHub pages')
 
     # Remove query string
     unless _.isEmpty(uri.query())
-      urls.push new AlternateUrl(uri.query(''), 'No query')
+      urls.push new AlternateUrl(uri.clone().query(''), 'No query')
 
     # Add or remove trailing slash
-    if /\/$/.test(uri.path)
-      urls.push new AlternateUrl(uri.path(uri.directory()),
+    if /\/$/.test(uri.path())
+      urls.push new AlternateUrl(uri.clone().path(uri.directory()),
         'Without trailing slash')
     else
-      urls.push new AlternateUrl(uri.path(uri.path()+'/'),
+      urls.push new AlternateUrl(uri.clone().path(uri.path()+'/'),
         'With trailing slash')
 
     _.pluck(urls, 'url')
