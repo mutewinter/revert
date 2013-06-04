@@ -39,7 +39,7 @@ module.exports =
       urls.push au(@removeQuery(noMobile.clone().subdomain('www')),
         'www instead of mobile')
 
-    _.chain(urls).compact().uniq().pluck('url').value()
+    _.chain(urls).pluck('url').compact().uniq().value()
 
   # Remove query string
   removeQuery: (uri) ->
