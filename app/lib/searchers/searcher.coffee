@@ -1,4 +1,4 @@
-DiscussionPage = require 'discussion_page'
+DiscussionPage = require 'lib/models/discussion_page'
 
 module.exports = class Searcher
   templateString: """
